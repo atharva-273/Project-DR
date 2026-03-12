@@ -37,6 +37,71 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    /* Source of truth: Colors.zip, Tailwind CSS.zip, Theme.zip token exports */
+    --token-brand-sandal-25: #fffcf7;
+    --token-brand-sandal-50: #fdf4e5;
+    --token-brand-sandal-100: #f9f3ea;
+    --token-brand-sandal-200: #f3eae1;
+    --token-brand-sandal-300: #ebddcb;
+    --token-brand-green-400: #2f7a58;
+    --token-brand-green-700: #0f3826;
+    --token-sec-blue-600: #1370c7;
+    --token-neutral-50: #fafafa;
+    --token-neutral-500: #737373;
+    --token-neutral-950: #0a0a0a;
+    --token-tailwind-blue-600: #2563eb;
+    --token-tailwind-green-700: #15803d;
+    --token-tailwind-red-600: #dc2626;
+    --token-tailwind-red-50: #fef2f2;
+    --token-tailwind-red-200: #fecaca;
+    --token-tailwind-red-700: #b91c1c;
+    --token-tailwind-yellow-50: #fefce8;
+    --token-tailwind-yellow-200: #fef08a;
+    --token-tailwind-yellow-600: #ca8a04;
+    --token-tailwind-orange-50: #fff7ed;
+    --token-tailwind-orange-200: #fed7aa;
+    --token-tailwind-orange-700: #c2410c;
+    --token-white-alpha-10: rgba(255, 255, 255, 0.1);
+    --token-neutral-alpha-2: rgba(18, 18, 18, 0.02);
+    --token-brand-green-alpha-3: rgba(32, 122, 79, 0.03);
+    --token-shadow-sm: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+      0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --token-ring-light: #a3a3a3;
+
+    --pilot-sandal-25: var(--token-brand-sandal-25);
+    --pilot-sandal-50: var(--token-brand-sandal-50);
+    --pilot-sandal-100: var(--token-brand-sandal-100);
+    --pilot-sandal-200: var(--token-brand-sandal-200);
+    --pilot-sandal-300: var(--token-brand-sandal-300);
+    --pilot-green-400: var(--token-brand-green-400);
+    --pilot-sidebar-bg: var(--token-brand-green-700);
+    --pilot-sidebar-active: var(--token-white-alpha-10);
+    --pilot-neutral-alpha: var(--token-neutral-alpha-2);
+    --pilot-row-highlight: var(--token-brand-green-alpha-3);
+    --pilot-status-blue: var(--token-tailwind-blue-600);
+    --pilot-status-blue-track: var(--token-sec-blue-600);
+    --pilot-status-green: var(--token-tailwind-green-700);
+    --pilot-status-red: var(--token-tailwind-red-600);
+    --pilot-priority-top-bg: var(--pilot-conflict-priority-top-bg);
+    --pilot-priority-top-fg: var(--token-neutral-50);
+    --pilot-priority-high-bg: var(--token-tailwind-red-50);
+    --pilot-priority-high-border: var(--token-tailwind-red-200);
+    --pilot-priority-high-fg: var(--token-tailwind-red-700);
+    --pilot-priority-low-bg: var(--token-tailwind-yellow-50);
+    --pilot-priority-low-border: var(--token-tailwind-yellow-200);
+    --pilot-priority-low-fg: var(--token-tailwind-yellow-600);
+    --pilot-priority-medium-bg: var(--token-tailwind-orange-50);
+    --pilot-priority-medium-border: var(--token-tailwind-orange-200);
+    --pilot-priority-medium-fg: var(--token-tailwind-orange-700);
+    --pilot-shadow-sm: var(--token-shadow-sm);
+    --pilot-focus-ring: var(--token-ring-light);
+    --pilot-filter-border: var(--pilot-conflict-filter-border);
+    --pilot-sidebar-divider: var(--pilot-conflict-sidebar-divider);
+
+    /* Figma-frame-required values missing from the provided token files */
+    --pilot-conflict-priority-top-bg: #256f4c;
+    --pilot-conflict-filter-border: #f0e4d8;
+    --pilot-conflict-sidebar-divider: rgba(255, 255, 255, 0.2);
 }
 
 .dark {
@@ -71,6 +136,35 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+    --pilot-sandal-25: var(--token-brand-sandal-25);
+    --pilot-sandal-50: var(--token-brand-sandal-50);
+    --pilot-sandal-100: var(--token-brand-sandal-100);
+    --pilot-sandal-200: var(--token-brand-sandal-200);
+    --pilot-sandal-300: var(--token-brand-sandal-300);
+    --pilot-green-400: var(--token-brand-green-400);
+    --pilot-sidebar-bg: var(--token-brand-green-700);
+    --pilot-sidebar-active: var(--token-white-alpha-10);
+    --pilot-neutral-alpha: var(--token-neutral-alpha-2);
+    --pilot-row-highlight: var(--token-brand-green-alpha-3);
+    --pilot-status-blue: var(--token-tailwind-blue-600);
+    --pilot-status-blue-track: var(--token-sec-blue-600);
+    --pilot-status-green: var(--token-tailwind-green-700);
+    --pilot-status-red: var(--token-tailwind-red-600);
+    --pilot-priority-top-bg: var(--pilot-conflict-priority-top-bg);
+    --pilot-priority-top-fg: var(--token-neutral-50);
+    --pilot-priority-high-bg: var(--token-tailwind-red-50);
+    --pilot-priority-high-border: var(--token-tailwind-red-200);
+    --pilot-priority-high-fg: var(--token-tailwind-red-700);
+    --pilot-priority-low-bg: var(--token-tailwind-yellow-50);
+    --pilot-priority-low-border: var(--token-tailwind-yellow-200);
+    --pilot-priority-low-fg: var(--token-tailwind-yellow-600);
+    --pilot-priority-medium-bg: var(--token-tailwind-orange-50);
+    --pilot-priority-medium-border: var(--token-tailwind-orange-200);
+    --pilot-priority-medium-fg: var(--token-tailwind-orange-700);
+    --pilot-shadow-sm: var(--token-shadow-sm);
+    --pilot-focus-ring: var(--token-ring-light);
+    --pilot-filter-border: var(--pilot-conflict-filter-border);
+    --pilot-sidebar-divider: var(--pilot-conflict-sidebar-divider);
 }
 
 @theme inline {
