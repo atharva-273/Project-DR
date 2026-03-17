@@ -36,6 +36,7 @@ export const PROJECT_SECTIONS: ProjectSection[] = [
         id: "tote-bag-design-1",
         name: "Tote bag design",
         subtitle: "Sunsets glow, memories linger.",
+        href: "/projects/tote-bag-design",
         priority: "high",
         status: "ready-for-review",
         statusDate: "Sun 18 Mar",

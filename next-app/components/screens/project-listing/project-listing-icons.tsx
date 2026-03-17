@@ -6,6 +6,10 @@ type IconName =
   | "header-search"
   | "header-plus"
   | "task-brush"
+  | "task-printer"
+  | "task-square-play"
+  | "task-box"
+  | "task-mail"
   | "task-file"
   | "task-search"
   | "task-filter"
@@ -51,6 +55,26 @@ const ICONS: Record<IconName, IconSpec> = {
     src: "/pilot/project-listing/icons/task-brush.svg",
     width: 14.6788,
     height: 14.0147,
+  },
+  "task-printer": {
+    src: "/pilot/project-listing/icons/task-printer.svg",
+    width: 14.6633,
+    height: 14.6633,
+  },
+  "task-square-play": {
+    src: "/pilot/project-listing/icons/task-square-play.svg",
+    width: 13.33,
+    height: 13.33,
+  },
+  "task-box": {
+    src: "/pilot/project-listing/icons/task-box.svg",
+    width: 13.33,
+    height: 14.662,
+  },
+  "task-mail": {
+    src: "/pilot/project-listing/icons/task-mail.svg",
+    width: 14.6635,
+    height: 11.9967,
   },
   "task-file": {
     src: "/pilot/project-listing/icons/task-file.svg",

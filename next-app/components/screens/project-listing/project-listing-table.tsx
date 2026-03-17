@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import type { ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
@@ -177,7 +178,7 @@ function SectionToggleRow({
   return (
     <button
       type="button"
-      className="flex w-full items-center gap-3 px-1 py-2 text-left outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+      className="flex w-full items-center gap-3 rounded-md px-1 py-2 text-left outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-[var(--pilot-neutral-alpha)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)]"
       onClick={onToggle}
       aria-expanded={isOpen}
       aria-label={`${section.label} section`}
@@ -240,9 +241,7 @@ function ActiveProjectsTable({ rows }: { rows: ProjectRow[] }) {
         <div className="min-w-[1112px] flex-1 overflow-hidden rounded-[6px]">
           <div className="grid w-full" style={columnTemplate}>
             <HeaderCell>Project Name</HeaderCell>
-            <HeaderCell align="center">
-              Priority
-            </HeaderCell>
+            <HeaderCell>Priority</HeaderCell>
             <HeaderCell>Status</HeaderCell>
             <HeaderCell align="center">
               Final Date
@@ -262,14 +261,29 @@ function ActiveProjectsTable({ rows }: { rows: ProjectRow[] }) {
               style={columnTemplate}
             >
               <div className="flex min-w-0 items-center px-3 py-3">
-                <div className="min-w-0">
-                  <p className="truncate text-[14px] leading-none font-semibold text-card-foreground">
-                    {row.name}
-                  </p>
-                  <p className="truncate pt-1 text-[12px] leading-4 text-muted-foreground">
-                    {row.subtitle}
-                  </p>
-                </div>
+                {row.href ? (
+                  <Link
+                    href={row.href}
+                    className="group block min-w-0 rounded-sm outline-none transition-opacity duration-150 ease-out hover:opacity-85 focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)]"
+                    aria-label={`Open ${row.name}`}
+                  >
+                    <p className="truncate text-[14px] leading-none font-semibold text-card-foreground">
+                      {row.name}
+                    </p>
+                    <p className="truncate pt-1 text-[12px] leading-4 text-muted-foreground">
+                      {row.subtitle}
+                    </p>
+                  </Link>
+                ) : (
+                  <div className="min-w-0">
+                    <p className="truncate text-[14px] leading-none font-semibold text-card-foreground">
+                      {row.name}
+                    </p>
+                    <p className="truncate pt-1 text-[12px] leading-4 text-muted-foreground">
+                      {row.subtitle}
+                    </p>
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center px-3 py-2">

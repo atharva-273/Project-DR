@@ -10,6 +10,7 @@ export type ProjectRow = {
   id: string
   name: string
   subtitle: string
+  href?: string
   priority: PriorityLevel
   status: StatusKind
   statusDate: string

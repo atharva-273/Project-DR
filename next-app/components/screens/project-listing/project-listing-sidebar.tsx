@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import { SIDEBAR_MENU } from "./data"
@@ -19,23 +20,42 @@ type SidebarItemProps = {
     | "sidebar-lightbulb"
     | "sidebar-dollar"
   active?: boolean
+  href?: string
 }
 
-function SidebarItem({ label, iconName, active = false }: SidebarItemProps) {
-  return (
-    <button
-      type="button"
-      aria-label={label}
-      className={cn(
-        "flex w-full items-center justify-center gap-0 rounded-md px-1 py-[14px] text-left text-[14px] leading-none text-white outline-none sm:px-2 xl:justify-start xl:gap-2 xl:px-2",
-        "focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)]",
-        active ? "bg-[var(--pilot-sidebar-active)] font-medium" : "font-normal"
-      )}
-    >
+function SidebarItem({ label, iconName, active = false, href }: SidebarItemProps) {
+  const itemClassName = cn(
+    "flex w-full items-center justify-center gap-0 rounded-md px-1 py-[14px] text-left text-[14px] leading-none text-white outline-none transition-[background-color,transform] duration-150 ease-out sm:px-2 xl:justify-start xl:gap-2 xl:px-2",
+    "focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)]",
+    active
+      ? "bg-[var(--pilot-sidebar-active)] font-medium"
+      : "font-normal hover:bg-[var(--pilot-sidebar-active)] hover:translate-x-[1px] active:scale-[0.99]"
+  )
+
+  const content = (
+    <>
       <div className="flex size-4 items-center justify-center">
         <ProjectListingIcon name={iconName} className="h-auto w-auto" />
       </div>
       <span className="hidden truncate xl:block">{label}</span>
+    </>
+  )
+
+  if (href) {
+    return (
+      <Link href={href} aria-label={label} className={itemClassName}>
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      className={itemClassName}
+    >
+      {content}
     </button>
   )
 }
@@ -57,7 +77,18 @@ const iconMap: Record<
   "Refer a Friend": "sidebar-dollar",
 }
 
-export function ProjectListingSidebar() {
+const primaryHrefMap: Partial<Record<string, string>> = {
+  "Activity Feed": "/activity-feed",
+  Projects: "/projects",
+}
+
+type ProjectListingSidebarProps = {
+  activePrimaryItem?: string
+}
+
+export function ProjectListingSidebar({
+  activePrimaryItem = "Projects",
+}: ProjectListingSidebarProps) {
   return (
     <aside className="flex min-h-svh w-16 shrink-0 flex-col justify-between bg-[var(--pilot-sidebar-bg)] text-white sm:w-20 xl:w-64">
       <div className="flex min-h-0 flex-1 flex-col">
@@ -74,7 +105,7 @@ export function ProjectListingSidebar() {
           </span>
           <button
             type="button"
-            className="rounded-md p-0.5 text-white outline-none focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)]"
+            className="rounded-md p-0.5 text-white outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-[var(--pilot-sidebar-active)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)]"
             aria-label="Toggle sidebar"
           >
             <div className="flex size-4 items-center justify-center">
@@ -93,7 +124,8 @@ export function ProjectListingSidebar() {
                 key={item}
                 label={item}
                 iconName={iconMap[item]}
-                active={item === "Projects"}
+                active={item === activePrimaryItem}
+                href={primaryHrefMap[item]}
               />
             ))}
           </div>
@@ -123,7 +155,7 @@ export function ProjectListingSidebar() {
       <div className="px-3 pb-3 pt-0">
         <button
           type="button"
-          className="flex w-full items-center justify-center gap-0 rounded-md p-2 text-left text-white outline-none focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)] xl:justify-start xl:gap-2"
+          className="flex w-full items-center justify-center gap-0 rounded-md p-2 text-left text-white outline-none transition-[background-color,transform] duration-150 ease-out hover:bg-[var(--pilot-sidebar-active)] active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-[var(--pilot-focus-ring)] xl:justify-start xl:gap-2"
         >
           <Image
             src="/pilot/project-listing/footer-avatar.png"
