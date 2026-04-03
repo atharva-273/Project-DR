@@ -32,6 +32,12 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        {process.env.NODE_ENV === "development" ? (
+          <script
+            src="https://mcp.figma.com/mcp/html-to-design/capture.js"
+            async
+          />
+        ) : null}
       </body>
     </html>
   )

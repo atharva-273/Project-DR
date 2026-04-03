@@ -1,0 +1,81 @@
+{
+  "batchId": "2026-04-02-form-controls",
+  "workspace": "next-app",
+  "components": [
+    {
+      "name": "avatar",
+      "variants": ["default", "sm", "lg"],
+      "states": ["default"],
+      "codePath": "next-app/components/ui/avatar.tsx"
+    },
+    {
+      "name": "button",
+      "variants": ["default", "outline", "ghost"],
+      "states": ["default", "hover", "focus", "disabled"],
+      "codePath": "next-app/components/ui/button.tsx"
+    },
+    {
+      "name": "checkbox",
+      "variants": ["default"],
+      "states": ["default", "focus", "active", "disabled"],
+      "codePath": "next-app/components/ui/checkbox.tsx"
+    },
+    {
+      "name": "input",
+      "variants": ["default"],
+      "states": ["default", "focus", "disabled"],
+      "codePath": "next-app/components/ui/input.tsx"
+    },
+    {
+      "name": "label",
+      "variants": ["default"],
+      "states": ["default", "disabled"],
+      "codePath": "next-app/components/ui/label.tsx"
+    },
+    {
+      "name": "radio-group",
+      "variants": ["default"],
+      "states": ["default", "focus", "active", "disabled"],
+      "codePath": "next-app/components/ui/radio-group.tsx"
+    }
+  ],
+  "tokens": [
+    { "name": "primitive.brand.primary-green.100", "value": "#C6E7D7", "type": "color", "mode": "light" },
+    { "name": "primitive.brand.primary-green.300", "value": "#529B77", "type": "color", "mode": "light" },
+    { "name": "primitive.brand.primary-green.400", "value": "#2F7A58", "type": "color", "mode": "light" },
+    { "name": "primitive.brand.primary-green.500", "value": "#1E6042", "type": "color", "mode": "light" },
+    { "name": "primitive.system.greyscale.50", "value": "#FAFAFA", "type": "color", "mode": "light" },
+    { "name": "tokens-style.typography.primary-text.primary-01", "value": "#171717", "type": "color", "mode": "light" },
+    { "name": "tokens-style.typography.secondary-text.secondary-01", "value": "#A3A3A3", "type": "color", "mode": "light" },
+    { "name": "tokens-style.background.bg-neutral.neutral-01", "value": "#FAFAFA", "type": "color", "mode": "light" },
+    { "name": "tokens-style.border.border-neutral.neutral-01", "value": "#E5E5E5", "type": "color", "mode": "light" }
+  ],
+  "semanticAliases": [
+    { "name": "dr-component-button-bg", "token": "primitive.brand.primary-green.400", "mode": "light", "description": "Default button background" },
+    { "name": "dr-component-button-bg-hover", "token": "primitive.brand.primary-green.500", "mode": "light", "description": "Button hover background" },
+    { "name": "dr-component-button-fg", "token": "primitive.system.greyscale.50", "mode": "light", "description": "Button foreground" },
+    { "name": "dr-component-input-bg", "token": "tokens-style.background.bg-neutral.neutral-01", "mode": "light", "description": "Input background" },
+    { "name": "dr-component-input-border", "token": "tokens-style.border.border-neutral.neutral-01", "mode": "light", "description": "Input border" },
+    { "name": "dr-component-input-fg", "token": "tokens-style.typography.primary-text.primary-01", "mode": "light", "description": "Input text" },
+    { "name": "dr-component-input-placeholder", "token": "tokens-style.typography.secondary-text.secondary-01", "mode": "light", "description": "Input placeholder text" },
+    { "name": "dr-component-label-fg", "token": "tokens-style.typography.primary-text.primary-01", "mode": "light", "description": "Label text" },
+    { "name": "dr-component-checkbox-checked-bg", "token": "primitive.brand.primary-green.400", "mode": "light", "description": "Checkbox checked state background" },
+    { "name": "dr-component-radio-checked-bg", "token": "primitive.brand.primary-green.400", "mode": "light", "description": "Radio checked state background" }
+  ],
+  "componentTokenMappings": [
+    { "component": "button", "slot": "root.background.default", "alias": "dr-component-button-bg" },
+    { "component": "button", "slot": "root.background.hover", "alias": "dr-component-button-bg-hover" },
+    { "component": "button", "slot": "label.foreground", "alias": "dr-component-button-fg" },
+    { "component": "input", "slot": "root.background", "alias": "dr-component-input-bg" },
+    { "component": "input", "slot": "root.border", "alias": "dr-component-input-border" },
+    { "component": "input", "slot": "value.foreground", "alias": "dr-component-input-fg" },
+    { "component": "input", "slot": "placeholder.foreground", "alias": "dr-component-input-placeholder" },
+    { "component": "label", "slot": "text.foreground", "alias": "dr-component-label-fg" },
+    { "component": "checkbox", "slot": "checked.background", "alias": "dr-component-checkbox-checked-bg" },
+    { "component": "radio-group", "slot": "checked.background", "alias": "dr-component-radio-checked-bg" }
+  ],
+  "figma_target": {
+    "url": "https://www.figma.com/design/d0NDAZFtXvK2GAfzlrPBvx/Style-guide?node-id=490-4579&t=hQkmEI8zv4LUtrYY-11",
+    "pageName": "Component Docs"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "batchId": "2026-04-02-core-controls",
+  "workspace": "next-app",
+  "components": [
+    {
+      "name": "button",
+      "variants": ["default", "outline", "ghost"],
+      "states": ["default", "hover", "focus", "disabled"],
+      "codePath": "next-app/components/ui/button.tsx"
+    },
+    {
+      "name": "input",
+      "variants": ["default"],
+      "states": ["default", "focus", "disabled"],
+      "codePath": "next-app/components/ui/input.tsx"
+    },
+    {
+      "name": "badge",
+      "variants": ["default", "secondary", "outline"],
+      "states": ["default"],
+      "codePath": "next-app/components/ui/badge.tsx"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "brand.green.400",
+      "value": "#2f7a58",
+      "type": "color",
+      "mode": "light"
+    },
+    {
+      "name": "brand.green.500",
+      "value": "#1e6042",
+      "type": "color",
+      "mode": "light"
+    },
+    {
+      "name": "neutral.50",
+      "value": "#fafafa",
+      "type": "color",
+      "mode": "light"
+    },
+    {
+      "name": "neutral.900",
+      "value": "#121212",
+      "type": "color",
+      "mode": "light"
+    },
+    {
+      "name": "neutral.100",
+      "value": "#f5f5f5",
+      "type": "color",
+      "mode": "dark"
+    }
+  ],
+  "semanticAliases": [
+    {
+      "name": "workflow-action-primary-bg",
+      "token": "brand.green.400",
+      "mode": "light",
+      "description": "Primary button default background."
+    },
+    {
+      "name": "workflow-action-primary-bg-hover",
+      "token": "brand.green.500",
+      "mode": "light",
+      "description": "Primary button hover background."
+    },
+    {
+      "name": "workflow-action-primary-fg",
+      "token": "neutral.50",
+      "mode": "light",
+      "description": "Primary button foreground."
+    },
+    {
+      "name": "workflow-input-fg",
+      "token": "neutral.900",
+      "mode": "light",
+      "description": "Input text color."
+    },
+    {
+      "name": "workflow-input-fg",
+      "token": "neutral.100",
+      "mode": "dark",
+      "description": "Input text color in dark mode."
+    }
+  ],
+  "componentTokenMappings": [
+    {
+      "component": "button",
+      "slot": "root.background.default",
+      "alias": "workflow-action-primary-bg"
+    },
+    {
+      "component": "button",
+      "slot": "root.background.hover",
+      "alias": "workflow-action-primary-bg-hover"
+    },
+    {
+      "component": "button",
+      "slot": "label.foreground",
+      "alias": "workflow-action-primary-fg"
+    },
+    {
+      "component": "input",
+      "slot": "input.foreground",
+      "alias": "workflow-input-fg"
+    }
+  ],
+  "figma_target": {
+    "url": "https://figma.com/design/FMynMzTyGNTCQ05xUvgCPS/Project-DR?node-id=1905-15188",
+    "pageName": "Component Docs"
+  }
+}

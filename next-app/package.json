@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tokens:dr:generate": "node scripts/workflows/generate-dr-token-system.mjs",
+    "workflow:run": "node scripts/workflows/run-shadcn-token-figma-batch.mjs",
+    "workflow:validate": "node scripts/workflows/run-shadcn-token-figma-batch.mjs --validate-only"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",

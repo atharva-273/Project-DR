@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://project-dr.local/schemas/shadcn-token-figma-batch.json",
+  "title": "ShadCN Token + Figma Batch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["batchId", "components", "tokens", "figma_target"],
+  "properties": {
+    "batchId": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Unique slug for this batch, for example: 2026-04-02-core-controls"
+    },
+    "workspace": {
+      "type": "string",
+      "default": "next-app",
+      "description": "Target app directory relative to repo root."
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "ShadCN component name or registry item name."
+          },
+          "variants": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "default",
+                "hover",
+                "focus",
+                "active",
+                "disabled",
+                "loading"
+              ]
+            }
+          },
+          "codePath": {
+            "type": "string",
+            "description": "Final source path for this component in the codebase."
+          }
+        }
+      }
+    },
+    "tokens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "value", "type", "mode"],
+        "properties": {
+          "name": { "type": "string" },
+          "value": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["color", "spacing", "radius", "shadow", "typography", "other"]
+          },
+          "mode": {
+            "type": "string",
+            "description": "Typically light or dark."
+          }
+        }
+      }
+    },
+    "semanticAliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "token"],
+        "properties": {
+          "name": { "type": "string" },
+          "token": {
+            "type": "string",
+            "description": "Token name reference from the tokens array."
+          },
+          "mode": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "componentTokenMappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["component", "slot", "alias"],
+        "properties": {
+          "component": { "type": "string" },
+          "slot": {
+            "type": "string",
+            "description": "Example: root.background, label.foreground, border.default"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Semantic alias defined in semanticAliases."
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "figma_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Figma frame/layer URL where docs should be maintained."
+        },
+        "pageName": {
+          "type": "string",
+          "default": "Component Docs"
+        },
+        "fileKey": {
+          "type": "string",
+          "description": "Optional when URL is present. If not set, extracted from URL."
+        },
+        "nodeId": {
+          "type": "string",
+          "description": "Optional when URL includes node-id. If not set, extracted from URL."
+        }
+      }
+    }
+  }
+}
